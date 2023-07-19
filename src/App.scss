@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Open-Sans;
+    src: url(assets/font/OpenSans.woff2) format(woff2);
+    src: url(assets/font/OpenSans.woff) format(woff);
+}
+
+* {
+    font-family: Open-Sans;
+}
+
+.app-content {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}

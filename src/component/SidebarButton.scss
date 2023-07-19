@@ -1,0 +1,21 @@
+.sidebar-button-content{
+    width: 56px;
+    height: 56px;
+    background: #F2F3F5;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-button-content svg {
+    color: #45505B;
+    transform: scale(0.5);
+    
+}
+
+
+.sidebar-button-content:hover {
+    background : #0563BB;
+}
