@@ -1,13 +1,12 @@
 import React from 'react'
 import './SidebarButton.scss'
-import HomeButton from '../assets/Sidebar/logo-home.svg'
 
-const SidebarButton = () => {
-    const= pathToImage = '../assets/Sidebar/logo-home.svg'
+const SidebarButton = ({LogoPath, Name}) => {
 
   return (
       <div className="sidebar-button-content">
-        <img src={pathToImage} />
+      <img src={LogoPath} alt="logo" />
+      <p>{Name}</p>
     </div>
   )
 }

@@ -7,15 +7,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.3s;
+    display: flex;
+    justify-content: left;
 }
 
-.sidebar-button-content svg {
-    color: #45505B;
-    transform: scale(0.5);
-    
+.sidebar-button-content img {
+    margin-left: 20px
 }
-
+.sidebar-button-content p {
+    margin-left: 10px;
+    color: white;
+    transition: 0.3s;
+}
 
 .sidebar-button-content:hover {
     background : #0563BB;
+    width: 128px;
+    border-radius: 50px;
 }
+
+.sidebar-button-content p:hover {
+    display: block;
+}
+
+
+
