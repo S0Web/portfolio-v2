@@ -1,10 +1,25 @@
-.home-content {
-    position: absolute;
-    left: 30vh
+.home-content .rotating-div {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    aspect-ratio: 2/1;
+    inset: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content .rotating-div .container {
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    padding: 80px;
 }
 
 .home-content h1 {
-    font-size: 4.28em;
+    font-family: Raleway, Open-Sans;
+    font-weight: bold;
+    font-size: 4em;
     margin: 0;
     color:#45505B
 }
