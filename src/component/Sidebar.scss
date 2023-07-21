@@ -1,4 +1,9 @@
 .sidebar-content {
     margin-left : 14px;
     margin-right: 17vh;
+    z-index: 1;
+}
+
+.sidebar-content a {
+    text-decoration: none;
 }

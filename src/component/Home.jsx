@@ -9,12 +9,13 @@ const Home = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [shadow, setShadow] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const[blur, setBlur] = useState ({x: 0, y: 0})
   const [isActive, setIsActive] = useState(false);
 
   const handleMouseMove = (event) => {
     if (!isActive) {
-      // Set a 0.3s delay before activating the effect
-      setTimeout(() => setIsActive(true), 100);
+      // changer la valeur pour avoir un délai
+      setTimeout(() => setIsActive(true), 0);
     }
 
     const div = document.getElementById('rotatingDiv');
@@ -26,8 +27,8 @@ const Home = () => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
-    const coefficientX = 2; // Ajustez selon vos préférences
-    const coefficientY = 7; // Ajustez selon vos préférences
+    const coefficientX = 3; // taux de rotation en x
+    const coefficientY = 8; // taux de rotation en y
 
     const diffX = (mouseX - centerX) * (coefficientX / 100 );
     const diffY = (mouseY - centerY) * (coefficientY / 100 );
@@ -38,34 +39,46 @@ const Home = () => {
     setRotation({ x: rotationX, y: rotationY });
 
     // Calcul des ombres en temps réel en fonction de la position du curseur
-    const shadowX = (diffX / 100) * 10; // Ajustez le coefficient pour l'effet d'ombre en relief
-    const shadowY = (diffY / 100) * 10; // Ajustez le coefficient pour l'effet d'ombre en relief
+    const shadowX = (diffX / 100) * 40; // Ombre x
+    const shadowY = (diffY / 100) * 40; // Ombre y
     setShadow({ x: shadowX, y: shadowY });
 
-      // Adjust the div position based on cursor movement
-      const posX = (diffX / 100) * 100; // Adjust the coefficient to control the movement
-      const posY = (diffY / 100) * 100; // Adjust the coefficient to control the movement
-      setPosition({ x: posX, y: posY });
+      // change la position en fonction du curseur
+      const posX = (diffX / 100) * 300; // position x
+      const posY = (diffY / 100) * 300; // position y
+    setPosition({ x: posX, y: posY });
+    
+    const blurX = Math.abs(diffX) > 0 ? Math.min(Math.abs(diffX / 100) * 20, 40) : 0;
+    const blurY = Math.abs(diffY) > 0 ? Math.min(Math.abs(diffY / 100) * 20, 40) : 0;
+    setBlur({ x: blurX, y: blurY });
+
   };
+  
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+    setShadow({ x: 0, y: 0 });
+    setPosition({ x: 0, y: 0 });
+  }
 
   return (
     <div className="home-content">
       <div
-      id=""
       className="rotating-div"
       style={{
         transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) translate(${isActive ? position.x : 0}px, ${
           isActive ? position.y : 0
         }px)`,
-        transition: isActive ? 'transform 0.3s ease' : 'none', // Add transition only when active
+        transition: isActive ? 'transform 0.15s ease' : 'none',
       }}
         onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <div
           id='rotatingDiv'
           className='container'
           style={{
-            boxShadow: `${shadow.x}px ${shadow.y}px 50px rgba(0, 0, 0, 0.3)`, // Utilisation des valeurs d'ombre dynamiques
+            boxShadow: `${shadow.x}px ${shadow.y}px 50px rgba(0, 0, 0, 0.3)`,
+            backdropFilter: `blur(${blur.x}px) blur(${blur.y}px)`,
           }}
         >
           <h1>Selim Ouadi</h1>

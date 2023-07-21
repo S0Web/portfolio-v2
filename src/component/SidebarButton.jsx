@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './SidebarButton.scss'
+import {Link} from 'react-router-dom'
 
-const SidebarButton = ({LogoPath, Name}) => {
+const SidebarButton = ({ logoPath, name, linkTo }) => {
 
   return (
-      <div className="sidebar-button-content">
-      <img src={LogoPath} alt="logo" />
-      <p>{Name}</p>
+    <div className={"sidebar-button-content"}>
+      <Link to={linkTo}>
+        <img src={logoPath} alt="logo" />
+        <p>{name}</p>
+      </Link>
     </div>
   )
 }
