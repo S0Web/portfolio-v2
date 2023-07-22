@@ -1,0 +1,40 @@
+.resume-container-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-container-content .resume-container-item {
+    border-left: solid #0563BB;
+    padding-left: 20px;
+}
+
+.resume-container-content .resume-container-item::before {
+    content:'';
+    position: absolute;
+    left: -9px;
+    border: solid #0563BB;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background: white;
+}
+
+.resume-container-content h2 {
+    text-transform: capitalize;
+}
+
+.resume-container-content h3 {
+    color: #0563BB;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.resume-container-content h4 {
+    background-color: RGB(247, 248, 249);
+    width: max-content;
+    font-weight: 600;
+}
+
+.resume-container-content .description {
+    font-style: italic;
+}
