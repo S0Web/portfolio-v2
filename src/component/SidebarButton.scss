@@ -21,10 +21,6 @@
     transition: 0.3s;
 }
 
-.sidebar-button-content-active {
-    background : #0563BB
-}
-
 .sidebar-button-content:hover {
     background : #0563BB;
     padding-right: 80px;
@@ -40,4 +36,11 @@
 
 a {
     display: flex;
+}
+
+.activeButton {
+    background-color: #0563BB;
+}
+.inactiveButton {
+    background-color: rgb(255, 0, 0);
 }

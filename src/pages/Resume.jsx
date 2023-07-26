@@ -4,6 +4,8 @@ import ResumeContainer from '../component/ResumeContainer'
 
 const Resume = () => {
   return (
+    <>
+      <h2 className="section-title">Curriculum vitae</h2>
     <div className="resume-content">
       <div className="left-item">
       <ResumeContainer/>
@@ -13,6 +15,7 @@ const Resume = () => {
       <ResumeContainer/>
       </div>
     </div>
+    </>
   )
 }
 

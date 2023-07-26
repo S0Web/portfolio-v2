@@ -4,13 +4,13 @@ import './ResumeContainer.scss'
 const ResumeContainer = ({ title, subtitle, place, date, description }) => {
 
   return (
-      <div className="resume-container-content">
+      <div className="resume-container">
           <h2>{title}</h2>
-          <div className="resume-container-item">  
+          <div className="resume-item">  
             <h3>{subtitle}</h3>
             <h4>{date}</h4>
-            <p>{place}</p>
-            <p>{description}</p>
+            <div className="place">{place}</div>
+        <p>{description}</p>
           </div>
     </div>
   )

@@ -1,40 +1,43 @@
-.resume-container-content {
+.resume-container {
     display: flex;
     flex-direction: column;
+    margin-inline: 20px
 }
 
-.resume-container-content .resume-container-item {
+.resume-container .resume-item {
     border-left: solid #0563BB;
     padding-left: 20px;
+    position: relative;
 }
 
-.resume-container-content .resume-container-item::before {
+.resume-container .resume-item::before {
     content:'';
     position: absolute;
-    left: -9px;
-    border: solid #0563BB;
+    left: -12px;
+    border: 3px solid #0563BB;
     border-radius: 50%;
     width: 16px;
     height: 16px;
     background: white;
 }
 
-.resume-container-content h2 {
+.resume-container h2 {
     text-transform: capitalize;
 }
 
-.resume-container-content h3 {
+.resume-container h3 {
     color: #0563BB;
     text-transform: uppercase;
     margin: 0;
 }
 
-.resume-container-content h4 {
+.resume-container h4 {
     background-color: RGB(247, 248, 249);
     width: max-content;
-    font-weight: 600;
+    padding-block: 5px;
+    padding-inline: 15px;
 }
 
-.resume-container-content .description {
+.resume-container .resume-item .place {
     font-style: italic;
 }
