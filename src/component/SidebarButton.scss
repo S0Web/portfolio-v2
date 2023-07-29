@@ -41,6 +41,7 @@ a {
 .activeButton {
     background-color: #0563BB;
 }
-.inactiveButton {
-    background-color: rgb(255, 0, 0);
+
+.activeButton img {
+    filter: invert(100%);
 }

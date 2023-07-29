@@ -6,7 +6,7 @@ import LogoPortfolio from '../assets/Sidebar/logo-portfolio.svg'
 import LogoServices from '../assets/Sidebar/logo-services.svg'
 import LogoContact from '../assets/Sidebar/logo-contact.svg'
 
-import './Sidebar.scss'; // Assurez-vous que vous avez le fichier CSS correspondant
+import './Sidebar.scss';
 
 const Sidebar = () => {
   const [activePage, setActivePage] = useState('Home'); // Par défaut, nous définissons "Home" comme la page active
@@ -17,7 +17,6 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar-content">
-      {/* Les boutons appellent maintenant setActivePage lorsqu'ils sont cliqués */}
       <SidebarButton linkTo="/" logoPath={LogoHome} name="Home" activePage={activePage} handlePageClick={handlePageClick} />
       <SidebarButton linkTo="/resume" logoPath={LogoResume} name="Resume" activePage={activePage} handlePageClick={handlePageClick} />
       <SidebarButton linkTo="/portfolio" logoPath={LogoPortfolio} name="Portfolio" activePage={activePage} handlePageClick={handlePageClick} />

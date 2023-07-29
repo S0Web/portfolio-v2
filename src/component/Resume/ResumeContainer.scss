@@ -8,6 +8,7 @@
     border-left: solid #0563BB;
     padding-left: 20px;
     position: relative;
+    max-width: 636px;
 }
 
 .resume-container .resume-item::before {
@@ -41,3 +42,4 @@
 .resume-container .resume-item .place {
     font-style: italic;
 }
+
