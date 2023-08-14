@@ -1,0 +1,25 @@
+.portfolio-container {
+    outline: 1px solid blue;
+    width: 90vw;
+    display: flex;
+}
+
+.portfolio-container img {
+    width: 1000px;
+}
+
+.portfolio-container .description {
+    outline: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-container .description h2 {
+    font-size: 3em;
+}
+
+.portfolio-container .description p {
+    font-size: 1.3em;
+}
