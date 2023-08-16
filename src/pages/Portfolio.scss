@@ -1,15 +1,23 @@
+
+.portfolio-content {
+    position: absolute;
+    top: 200px;
+}
 .portfolio-container {
-    outline: 1px solid blue;
-    width: 90vw;
+    width: 82vw;
     display: flex;
+    justify-content: flex-start;
+}
+
+#portfolio-container-2 {
+    justify-content: flex-end;
 }
 
 .portfolio-container img {
-    width: 1000px;
+    width: 900px;
 }
 
 .portfolio-container .description {
-    outline: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,6 +26,7 @@
 
 .portfolio-container .description h2 {
     font-size: 3em;
+    color: #0563BB
 }
 
 .portfolio-container .description p {
