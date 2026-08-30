@@ -1,47 +1,76 @@
-.sidebar-button-content{
+.sidebar-button-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 56px;
     height: 56px;
-    background: #F2F3F5;
-    border-radius: 50%;
-    margin-bottom: 8px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.3s ease;
+}
 
-    transition: 0.3s;
-
+.sidebar-button-content:hover:not(.activeButton) {
+    background: var(--surface-strong);
 }
 
 .sidebar-button-content img {
-    margin-left: 20px
+    position: relative;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
 }
+
+.sidebar-button-content:hover img,
+.sidebar-button-content.activeButton img {
+    opacity: 1;
+}
+
 .sidebar-button-content p {
-    margin-left: 10px;
-    color: transparent;
-    transition: 0.3s;
+    position: absolute;
+    left: calc(100% + 14px);
+    top: 50%;
+    margin: 0;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) translateX(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: var(--shadow-soft);
 }
 
-.sidebar-button-content:hover {
-    background : #0563BB;
-    padding-right: 80px;
-    border-radius: 50px;
+.sidebar-button-content:hover p,
+.sidebar-button-content.activeButton p {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
-.sidebar-button-content:hover img {
-    filter: invert(100%);
-}
-.sidebar-button-content:hover p {
-    color: white
-}
-
-a {
-    display: flex;
+.active-pill {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--accent-gradient);
+    border-radius: inherit;
+    box-shadow: var(--shadow-glow);
 }
 
-.activeButton {
-    background-color: #0563BB;
-}
+@media (max-width: 860px) {
+    .sidebar-button-content {
+        width: 48px;
+        height: 48px;
+    }
 
-.activeButton img {
-    filter: invert(100%);
+    .sidebar-button-content p {
+        display: none;
+    }
 }

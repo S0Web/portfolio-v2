@@ -1,0 +1,29 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 12px;
+}
+
+.not-found-code {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3em, 8vw, 6em);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+}
+
+.not-found h2 {
+    margin: 0;
+    color: var(--text);
+}
+
+.not-found p {
+    margin: 0 0 12px;
+    color: var(--text-dim);
+}

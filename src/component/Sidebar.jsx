@@ -1,29 +1,36 @@
-import React, { useState } from 'react';
-import SidebarButton from './SidebarButton';
+import { useLocation } from 'react-router-dom'
+import SidebarButton from './SidebarButton'
 import LogoHome from '../assets/Sidebar/logo-home.svg'
 import LogoResume from '../assets/Sidebar/logo-resume.svg'
 import LogoPortfolio from '../assets/Sidebar/logo-portfolio.svg'
-import LogoServices from '../assets/Sidebar/logo-services.svg'
-import LogoContact from '../assets/Sidebar/logo-contact.svg'
 
-import './Sidebar.scss';
+import './Sidebar.scss'
+
+const NAV_ITEMS = [
+  { to: '/', label: 'Home', logo: LogoHome },
+  { to: '/resume', label: 'Resume', logo: LogoResume },
+  { to: '/portfolio', label: 'Portfolio', logo: LogoPortfolio },
+]
 
 const Sidebar = () => {
-  const [activePage, setActivePage] = useState('Home'); // Par défaut, nous définissons "Home" comme la page active
-
-  const handlePageClick = (pageName) => {
-    setActivePage(pageName); // Met à jour la page active lorsqu'un bouton est cliqué
-  };
+  const { pathname } = useLocation()
 
   return (
-    <div className="sidebar-content">
-      <SidebarButton linkTo="/" logoPath={LogoHome} name="Home" activePage={activePage} handlePageClick={handlePageClick} />
-      <SidebarButton linkTo="/resume" logoPath={LogoResume} name="Resume" activePage={activePage} handlePageClick={handlePageClick} />
-      <SidebarButton linkTo="/portfolio" logoPath={LogoPortfolio} name="Portfolio" activePage={activePage} handlePageClick={handlePageClick} />
-      <SidebarButton linkTo="/services" logoPath={LogoServices} name="Services" activePage={activePage} handlePageClick={handlePageClick} />
-      <SidebarButton linkTo="/contact" logoPath={LogoContact} name="Contact" activePage={activePage} handlePageClick={handlePageClick} />
-    </div>
-  );
-};
+    <nav className="sidebar-content" aria-label="Navigation principale">
+      <ul>
+        {NAV_ITEMS.map((item) => (
+          <li key={item.to}>
+            <SidebarButton
+              linkTo={item.to}
+              logoPath={item.logo}
+              name={item.label}
+              isActive={pathname === item.to}
+            />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
 
-export default Sidebar;
+export default Sidebar

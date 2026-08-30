@@ -1,0 +1,80 @@
+.easter-egg-stack {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.easter-egg {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    max-width: 280px;
+    padding: 14px 16px;
+    background: var(--bg-alt);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    border: none;
+    appearance: none;
+}
+
+.easter-egg-avatar {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+}
+
+.easter-egg-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.easter-egg-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.easter-egg-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.25);
+}
+
+.easter-egg-message {
+    font-size: 0.9em;
+    color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+    .easter-egg-stack {
+        right: 16px;
+        left: 16px;
+        bottom: 90px;
+        align-items: stretch;
+    }
+
+    .easter-egg {
+        max-width: none;
+    }
+}
