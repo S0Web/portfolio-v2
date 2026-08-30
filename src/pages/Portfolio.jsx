@@ -2,7 +2,6 @@ import PageTransition from '../component/PageTransition'
 import Reveal from '../component/Reveal'
 import Magnetic from '../component/Magnetic'
 import ScrambleText from '../component/ScrambleText'
-import ProjectTracker from '../component/ProjectTracker'
 import flyderImg from '../assets/portfolio/flyder.jpg'
 import boookableImg from '../assets/portfolio/boookable.jpg'
 import undercoverImg from '../assets/portfolio/undercover.jpg'
@@ -90,9 +89,10 @@ const PROJECTS = [
   },
 ]
 
+export const PROJECT_TITLES = PROJECTS.map((project) => project.title)
+
 const Portfolio = () => {
   return (
-    <>
       <PageTransition>
         <h2 className="section-title"><ScrambleText text="Portfolio" /></h2>
         <div className="portfolio-content">
@@ -175,8 +175,6 @@ const Portfolio = () => {
           })}
         </div>
       </PageTransition>
-      <ProjectTracker items={PROJECTS.map((project) => project.title)} />
-    </>
   )
 }
 

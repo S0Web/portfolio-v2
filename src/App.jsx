@@ -7,22 +7,26 @@ import ScrollProgress from './component/ScrollProgress'
 import EasterEgg from './component/EasterEgg'
 import Home from './component/Home'
 import Resume from './pages/Resume'
-import Portfolio from './pages/Portfolio'
+import Portfolio, { PROJECT_TITLES } from './pages/Portfolio'
 import NotFound from './pages/NotFound'
+import ProjectTracker from './component/ProjectTracker'
 
 const AnimatedRoutes = () => {
   const location = useLocation()
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Navigate to="/" replace />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+      {location.pathname === '/portfolio' && <ProjectTracker items={PROJECT_TITLES} />}
+    </>
   )
 }
 

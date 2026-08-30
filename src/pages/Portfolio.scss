@@ -149,11 +149,15 @@
 
 @media (max-width: 860px) {
     .project-band {
-        padding: 48px 24px;
+        padding: 48px 24px 90px;
     }
 
     .project-band:last-child {
         padding-bottom: 64px;
+    }
+
+    .band-wave {
+        height: 70px;
     }
 
     .project-card,
