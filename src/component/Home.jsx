@@ -6,6 +6,7 @@ import PageTransition from './PageTransition'
 import Magnetic from './Magnetic'
 import ScrambleText from './ScrambleText'
 import './Home.scss'
+import profilImg from '../assets/profil.jpg'
 import Linkedin from '../assets/social-link/linkedin.svg'
 import Github from '../assets/social-link/github.svg'
 import flyderImg from '../assets/portfolio/flyder.jpg'
@@ -83,6 +84,12 @@ const Home = () => {
             initial="initial"
             animate="animate"
           >
+            <motion.img
+              src={profilImg}
+              alt="Selim Ouadi"
+              className="avatar"
+              variants={itemVariants}
+            />
             <motion.span className="eyebrow" variants={itemVariants}>
               Data Analyst &amp; Développeur Full-Stack
             </motion.span>
@@ -119,6 +126,14 @@ const Home = () => {
                 ))}
               </div>
             </motion.div>
+            <motion.div className="home-contact" variants={itemVariants}>
+              {CONTACT_METHODS.map((method) => (
+                <a key={method.href} href={method.href} className="home-contact-item">
+                  <method.icon size={16} />
+                  {method.label}
+                </a>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
 
@@ -137,20 +152,6 @@ const Home = () => {
               </Link>
             ))}
           </div>
-        </motion.div>
-
-        <motion.div
-          className="home-contact"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {CONTACT_METHODS.map((method) => (
-            <a key={method.href} href={method.href} className="home-contact-item">
-              <method.icon size={16} />
-              {method.label}
-            </a>
-          ))}
         </motion.div>
       </div>
     </PageTransition>

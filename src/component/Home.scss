@@ -21,6 +21,17 @@
     transform-style: preserve-3d;
 }
 
+.home-content .avatar {
+    display: block;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: var(--shadow-glow);
+    margin-bottom: 20px;
+}
+
 .home-content .eyebrow {
     display: inline-block;
     text-transform: uppercase;
@@ -174,6 +185,11 @@
     gap: 12px 28px;
 }
 
+.home-content .container .home-contact {
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
 .home-contact-item {
     display: inline-flex;
     align-items: center;
@@ -236,11 +252,16 @@
     }
 
     .home-content .chip-list,
-    .home-content .home-actions {
+    .home-content .home-actions,
+    .home-content .container .home-contact {
         justify-content: center;
     }
 
     .availability {
         justify-content: center;
+    }
+
+    .home-content .avatar {
+        margin-inline: auto;
     }
 }
