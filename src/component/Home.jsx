@@ -102,7 +102,7 @@ const Home = () => {
             </motion.p>
             <motion.span className="availability" variants={itemVariants}>
               <span className="availability-dot" />
-              Disponible dès septembre 2026 · Alternance
+              En alternance à la SNCF · Développeur d&apos;agents IA
             </motion.span>
             <motion.div className="tech-ticker" variants={itemVariants}>
               <div className="tech-ticker-track">

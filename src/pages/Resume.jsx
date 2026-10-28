@@ -10,6 +10,16 @@ import './Resume.scss'
 
 const EXPERIENCES = [
   {
+    role: "Développeur d’agents IA & conduite du changement IA (alternance)",
+    company: 'SNCF',
+    period: 'Oct. 2026 — présent',
+    headline: "Conception d’agents IA et accompagnement des équipes dans leur adoption.",
+    bullets: [
+      "Développement d’agents IA au service des besoins métiers.",
+      "Conduite du changement : accompagnement des utilisateurs dans l’adoption des usages IA.",
+    ],
+  },
+  {
     role: 'Data Developer',
     company: 'Fitnessmov',
     period: '2024 — 2026',
@@ -54,7 +64,7 @@ const EXPERIENCES = [
 
 const EDUCATION = [
   {
-    title: 'Master Big Data / IA',
+    title: 'Master Développement Data IA (alternance)',
     school: 'IPSSI Paris',
     period: '2026 — 2028',
     detail: 'Architecture de données, pipelines ETL, Machine Learning, Business Intelligence & Data Analytics.',
@@ -185,7 +195,7 @@ const Resume = () => {
           <li><a href="tel:+33618336933">06 18 33 69 33</a></li>
           <li>Corbeil-Essonnes (91100)</li>
           <li>26 ans · Permis de conduire</li>
-          <li>Disponible dès septembre 2026</li>
+          <li>En alternance à la SNCF depuis octobre 2026</li>
         </ul>
         <Magnetic className="btn btn-ghost" href="/cv/OUADI-Selim-cv.pdf" target="_blank" rel="noreferrer">
           Télécharger le CV (PDF)
