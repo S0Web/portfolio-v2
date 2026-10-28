@@ -78,3 +78,21 @@
         max-width: none;
     }
 }
+
+.jumpscare {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+    cursor: pointer;
+
+    img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+}

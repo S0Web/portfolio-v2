@@ -1,11 +1,61 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import PropTypes from 'prop-types'
 import { AnimatePresence, motion } from 'framer-motion'
+import jumpscareImg from '../assets/jumpscare.png'
+import jumpscareSound from '../assets/jumpscare.m4a'
 import './EasterEgg.scss'
 
 const TRIGGER = 'selim'
 const AUTO_HIDE_MS = 15000
-const REDIRECT_DELAY_MS = 1400
+const JUMPSCARE_DELAY_MS = 1400
+const SHAKE_STEPS = 24
+
+const randomSteps = (range) =>
+  Array.from({ length: SHAKE_STEPS }, () => (Math.random() - 0.5) * 2 * range)
+
+const Jumpscare = ({ onClose }) => {
+  const shake = useMemo(
+    () => ({
+      x: randomSteps(160),
+      y: randomSteps(120),
+      rotate: randomSteps(14),
+      scale: Array.from({ length: SHAKE_STEPS }, () => 1.05 + Math.random() * 0.2),
+    }),
+    [],
+  )
+
+  useEffect(() => {
+    const audio = new Audio(jumpscareSound)
+    audio.addEventListener('ended', onClose)
+    audio.play().catch(() => {})
+    return () => {
+      audio.removeEventListener('ended', onClose)
+      audio.pause()
+    }
+  }, [onClose])
+
+  return (
+    <motion.div
+      className="jumpscare"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.05 }}
+      onClick={onClose}
+    >
+      <motion.img
+        src={jumpscareImg}
+        alt=""
+        animate={shake}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'linear' }}
+      />
+    </motion.div>
+  )
+}
+
+Jumpscare.propTypes = {
+  onClose: PropTypes.func.isRequired,
+}
 
 const MESSAGES = [
   'Ouais, tu m’as appelé ?',
@@ -25,7 +75,8 @@ const EasterEgg = () => {
   const [messages, setMessages] = useState([])
   const idRef = useRef(0)
   const countRef = useRef(0)
-  const navigate = useNavigate()
+  const [scared, setScared] = useState(false)
+  const closeJumpscare = useCallback(() => setScared(false), [])
 
   const removeMessage = useCallback((id) => {
     setMessages((prev) => prev.filter((msg) => msg.id !== id))
@@ -53,13 +104,13 @@ const EasterEgg = () => {
       setTimeout(() => removeMessage(id), AUTO_HIDE_MS)
 
       if (isLast) {
-        setTimeout(() => navigate('/tu-m-as-saoule'), REDIRECT_DELAY_MS)
+        setTimeout(() => setScared(true), JUMPSCARE_DELAY_MS)
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [removeMessage, navigate])
+  }, [removeMessage])
 
   return (
     <div className="easter-egg-stack">
@@ -87,6 +138,7 @@ const EasterEgg = () => {
           </motion.button>
         ))}
       </AnimatePresence>
+      <AnimatePresence>{scared && <Jumpscare onClose={closeJumpscare} />}</AnimatePresence>
     </div>
   )
 }
