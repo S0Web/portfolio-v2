@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { AnimatePresence, motion } from 'framer-motion'
 import jumpscareImg from '../assets/jumpscare.png'
-import jumpscareSound from '../assets/jumpscare.m4a'
 import './EasterEgg.scss'
 
 const TRIGGER = 'selim'
@@ -25,7 +24,7 @@ const Jumpscare = ({ onClose }) => {
   )
 
   useEffect(() => {
-    const audio = new Audio(jumpscareSound)
+    const audio = new Audio('/sounds/jumpscare.m4a')
     audio.addEventListener('ended', onClose)
     audio.play().catch(() => {})
     return () => {
